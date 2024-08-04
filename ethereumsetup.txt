@@ -1,0 +1,66 @@
+##########################################################################
+
+TRUFFLE CMDS
+
+1. truffle init
+2. truffle compile
+3. truffle migrate --network geth
+
+##########################################################################
+
+
+************UPDATED COMMAND LIST TO SET UP ETHEREUM**************
+
+install geth from geth.ethereum.org 64-bit and also make sure to donwload 1.10.26 or older version as the newer ones don't have the library personal that will be needed for creating accounts
+
+--Ethereum Setup
+
+1. Install geth from https://geth.ethereum.org/downloads/
+
+2. Write the gensis.json as below:
+{
+"config"    : {
+    "chainId": 9876,
+    "homesteadBlock": 0,
+    "eip150Block": 0,
+    "eip155Block": 0,
+    "eip158Block": 0,
+    "byzantiumBlock": 0,
+    "constantinopleBlock": 0,
+    "petersburgBlock": 0,
+    "ethash": {}
+    },
+"difficulty": "0x400",
+"gasLimit"  : "0xffffffff",
+"alloc": {}
+}
+
+3. geth init --datadir mychaindata genesis.json
+
+4. geth --datadir "mychaindata" --networkid 9876 --http.port 8000 --http.addr 0.0.0.0 --port 30303 --http --   http.api="miner,db,eth,net,web3,personal,admin" --nat=any --nodiscover --http.corsdomain "*"
+
+5. Open a new cmd
+   geth attach \\.\pipe\geth.ipc (Windows CMD)
+	OR
+   geth attach ipc:/rmiteth/mychaindata/geth.ipc (Ubuntu CMD)
+
+6. In the same cmd create a new account:
+   > personal.newAccount("account@1")
+    "0x32dc919d096d4d8ba296b14d57c4a748ec7431e6"
+   in this cmd put the account@1 in the password.txt file and the returned hash code of account in the next cmd
+
+7. geth --datadir "mychaindata" --networkid 9876 --http.port 8000 --http.addr 0.0.0.0 --port 30303 --http --http.api="miner,eth,net,web3,personal,admin" --nat=any --nodiscover --http.corsdomain "*" --password "password.txt" --allow-insecure-unlock --unlock "0x32dc919d096d4d8ba296b14d57c4a748ec7431e6" --mine --miner.threads 1
+
+***********************************************
+
+account 0xd38249c9b3e267e5fdcba2eb139eb510141b2eb1 password account@1
+miner.setEtherbase(eth.accounts[0])
+web3.fromWei(eth.getBalance(eth.accounts[0]),"ether")
+
+
+Chaman's Account:
+
+account: 0x32dc919d096d4d8ba296b14d57c4a748ec7431e6
+password: account@1
+contact address: 0xC8fe414f6b61dF1698BaA166c6E921527c87e87f
+transaction hash: 0x52cb20948d591e696387c1e961beba7f2c8981f41d0b6c681695893e4b881bd0

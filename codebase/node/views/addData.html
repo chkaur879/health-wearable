@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Health Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylesheets/adminstyle.css">
+    <script src="https://kit.fontawesome.com/d0375b7471.js" crossorigin="anonymous"></script>
+
+    <!-- <link rel="shortcut icon" href="./images/favicon.ico" /> -->
+</head>
+
+<body>
+    <div class="container-scroller">
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="/" style="font-size: 32px;">Health Tracker</a>
+            </div>
+        </nav>
+        <!-- Menu -->
+        <div class="container-fluid page-body-wrapper">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item nav-profile">
+                        <a href="#" class="nav-link">
+                            <div class="nav-profile-image" style="display: contents;">
+                                <i class="fa-solid fa-user" style="font-size: 20px;"></i>
+                            </div>
+                            <div class="nav-profile-text d-flex flex-column" style="display: contents;">
+                                <span class="font-weight-bold" style="font-size: 16px;">Chamanpreet Kaur</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fa fa-home px-3 fa-lg"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/addData">
+                            <i class="fa-solid fa-file-lines fa-lg pl-4 pr-3"></i>
+                            <span class="menu-title">New User</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Body -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title">
+                            <span class="page-title-icon bg-gradient-primary text-white me-2">
+                                <i class="fa-solid fa-file-lines fa-lg"></i>
+                            </span> Add User Data
+                        </h3>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form class="forms-sample">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name"
+                                                placeholder="Name" name="name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">Date</label>
+                                            <input type="text" class="form-control" id="date" placeholder="Date"
+                                                name="date" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="totalDistance">Total Distance (meters)</label>
+                                            <input type="text" class="form-control" placeholder="Total Distance (meters)" name="totalDistance" id="totalDistance" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="totalSteps">Total Steps</label>
+                                            <input type="text" class="form-control" id="totalSteps" placeholder="Total Steps"
+                                                name="totalSteps" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="veryActiveDist">Very Active Distance (meters)</label>
+                                            <input type="text" class="form-control" id="veryActiveDist" placeholder="Very Active Distance (meters)"
+                                                name="veryActiveDist" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="veryActiveMins">Very Active Minutes</label>
+                                            <input type="text" class="form-control" id="veryActiveMins" placeholder="Very Active Minutes"
+                                                name="veryActiveMins" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="moderateActiveDist">Moderate Active Distance (meters)</label>
+                                            <input type="text" class="form-control" id="moderateActiveDist" placeholder="Moderate Active Distance (meters)"
+                                                name="moderateActiveDist" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fairlyActiveMins">Fairly Active Minutes</label>
+                                            <input type="text" class="form-control" id="fairlyActiveMins" placeholder="Fairly Active Minutes"
+                                                name="fairlyActiveMins" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lightlyActiveDist">Lightly Active Distance (meters)</label>
+                                            <input type="text" class="form-control" id="lightlyActiveDist" placeholder="Lightly Active Distance (meters)"
+                                                name="lightlyActiveDist" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lightlyActiveMins">Lightly Active Minutes</label>
+                                            <input type="text" class="form-control" id="lightlyActiveMins" placeholder="Lightly Active Minutes"
+                                                name="lightlyActiveMins" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-gradient-primary me-2" id="submitBtn">Submit</button>
+                                        <button class="btn btn-light">Cancel</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="card hidden" id="predictionDiv">
+                                <div class="card-body align-items-center">
+                                    <div class="row" style="font-size: 30px; background-color: #b66dff; color: #ffffff;">
+                                        <label class="col-md-7 text-right ml-4 pt-2 pr-2">Calorie Burn Prediction:</label>
+                                        <label id="predictionScore" class="col-md-3 pt-2 pl-2"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <script src="./js/admin.js"></script>
+        <script>
+            document.querySelector("#submitBtn").addEventListener("click", function(evt){
+                evt.preventDefault();
+                addUserData();
+            })
+        </script>
+
+    </body>
+</html>
